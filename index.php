@@ -10,4 +10,19 @@
     		</div>  
   		</div>
 
+  		<div class="container container--narrow page-section">
+  			<?php while(have_posts()){
+				the_post(); ?>
+				 <div class="post-item">
+        			<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+        			<div class="metabox">
+ 						<p>Author Date Category</p>
+        			</div>
+        			<div class="generic-content">
+        				<?php the_excerpt(); ?>
+        				<p><a class="btn btn--blue" href="">Continue reading &raquo;</a></p>
+        			</div> 		
+			<?php } ?>
+  		</div>
+
 <?php get_footer(); ?>
