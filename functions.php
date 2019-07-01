@@ -22,7 +22,10 @@
 
 	function university_post_types(){
 		register_post_type('event', array(
-			'public' => true
+			'public' => true,
+			'labels' => array(
+				'name' => 'Events'
+			)
 		));
 	}
 
