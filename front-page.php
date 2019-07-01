@@ -63,7 +63,7 @@
                       <?php 
                           if(has_excerpt())
                              {
-                                the_excerpt();
+                                echo get_the_excerpt();
                              }
                            else
                             {
