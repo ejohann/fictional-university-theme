@@ -21,7 +21,7 @@
         <?php $relatedPrograms = get_field('related_programs'); ?>
         <?php if($relatedPrograms) : ?>
           <hr class="section-break">
-          <h2 class="headline headline--medium">Related Program(s)</h2>
+          <h2 class="headline headline--medium">Subject(s) Taught</h2>
           <ul class="link-list min-list">
             <?php 
               foreach($relatedPrograms as $program)
