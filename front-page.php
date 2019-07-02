@@ -81,7 +81,11 @@
 
           while($homepagePosts->have_posts()){
             $homepagePosts->the_post(); ?>
-              
+
+           
+              <!-- TEMPLATE CODE HERE   -->
+           
+
             <?php  }
             wp_reset_postdata();
         ?>
