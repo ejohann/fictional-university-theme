@@ -14,9 +14,22 @@
   
 
   			<?php 
+          $today = date('Ymd');
           $pastEvents = new WP_Query(array(
-              'post_type' => 'event'
-           ));
+            'posts_per_page' => 1,
+            'post_type' => 'event',
+            'meta_key' => 'event_date',
+            'orderby' => 'meta_value_num',
+            'order' => 'ASC',
+            'meta_query' => array(
+              array(
+                'key' => 'event_date',
+                'compare' => '<',
+                'value' => $today,
+                'type' => 'numeric'
+              )
+            )
+          ));
           while($pastEvents->have_posts()){
 				    $pastEvents->the_post(); ?>
 			         <div class="event-summary">
@@ -36,6 +49,7 @@
             </div> 		
 			<?php } 
 				echo paginate_links();
+        wp_reset_postdata();
 			?>
   		</div>
 
