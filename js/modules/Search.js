@@ -4,3 +4,5 @@ class Search{
 		alert("I am a search");
 	}
 }
+
+export default Search;
