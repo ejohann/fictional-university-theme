@@ -14,7 +14,12 @@
   			<div class="generic-content"><?php the_content(); ?></div>
 
 
-        <div class="acf-map"></div>
+        <div class="acf-map">
+          <?php $mapLocation = get_field('map_location'); ?>
+          <div class="marker" data-lat="<?php echo $mapLocation['lat']; ?>" data-lng="<?php echo $mapLocation['lng']; ?>">  <h3><?php the_title(); ?></h3>
+            <?php echo $mapLocation['address']; ?>
+          </div>      
+        </div>
 
         <?php 
 
