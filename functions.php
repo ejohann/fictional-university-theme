@@ -1,7 +1,7 @@
 <?php 
 
 
-
+	require('inc/page-banner.php');
 
   	
 	function fictional_university_files(){
