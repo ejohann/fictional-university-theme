@@ -8,13 +8,19 @@
 
   		<div class="container container--narrow page-section">
         <ul class="link-list min-list">
-  			   <?php while(have_posts()){
-				        the_post(); ?>
-			          <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>	
+          <div class="acf-map">
+  			     <?php while(have_posts()){
+				        the_post(); 
+                $mapLocation = get_field('map_location'); 
+            ?>
+            <div class="marker" data-lat="<?php echo $mapLocation['lat']; ?>" data-lng="<?php echo $mapLocation['lng']; ?>">  </div>
+			       
+             <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+             
 			     <?php } 
 				      echo paginate_links();
 			     ?>
-        </ul>
+        </div>
   		</div>
 
 <?php get_footer(); ?>
