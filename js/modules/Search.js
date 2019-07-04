@@ -51,7 +51,12 @@ class Search{
 
  	getResults(){
  		$.getJSON('http://localhost/wp/wp-json/wp/v2/posts?search=' + this.searchField.val(), posts => {
- 			this.resultsDiv.html("<h3>" + posts[0].title.rendered + "</h3>" + "<p>"+posts[0].content.rendered+"</p>");
+ 			this.resultsDiv.html(`
+ 				<h2 class="search-overlay__section-title">Search Results</h2>
+ 				<ul class="link-list min-list">
+ 					<li><a href="${posts[0].link}">${posts[0].title.rendered}</a></li>
+ 				</ul>
+ 				`);
  			this.isSpinnerVisible = false;
  		});
  	}
