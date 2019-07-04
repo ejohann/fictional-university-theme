@@ -50,10 +50,9 @@ class Search{
  	}
 
  	getResults(){
- 		$.getJSON('http://localhost/wp/wp-json/wp/v2/posts?search=' + this.searchField.val(), function(posts){
- 			alert(posts[0].content.rendered);
- 			//this.resultsDiv.html("<h3>" + posts[0].title.rendered + "</h3>");
- 			//this.isSpinnerVisible = false;
+ 		$.getJSON('http://localhost/wp/wp-json/wp/v2/posts?search=' + this.searchField.val(), posts => {
+ 			this.resultsDiv.html("<h3>" + posts[0].title.rendered + "</h3>" + "<p>"+posts[0].content.rendered+"</p>");
+ 			this.isSpinnerVisible = false;
  		});
  	}
 
