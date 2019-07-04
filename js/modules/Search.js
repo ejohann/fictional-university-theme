@@ -51,9 +51,11 @@ class Search{
  	}
 
  	getResults(){
- 		$.getJSON(universityData.root_url + '/wp-json/wp/v2/posts?search=' + this.searchField.val(), posts => {
- 			$.getJSON(universityData.root_url + '/wp-json/wp/v2/pages?search=' + this.searchField.val(), pages => {
- 				var combinedResults = posts.concat(pages);
+ 		$.when(
+ 			$.getJSON(universityData.root_url + '/wp-json/wp/v2/posts?search=' + this.searchField.val()), 
+ 			$.getJSON(universityData.root_url + '/wp-json/wp/v2/pages?search=' + this.searchField.val())
+ 			).then((posts, pages) => {
+ 			var combinedResults = posts[0].concat(pages[0]);
  				this.resultsDiv.html(`
  				<h2 class="search-overlay__section-title">Search Results</h2>
  				${combinedResults.length ? '<ul class="link-list min-list">' : '<p>No search results found</p>'}
@@ -64,7 +66,6 @@ class Search{
  				
  			 `);
  			this.isSpinnerVisible = false;
- 			});
  		});
  	}
 
