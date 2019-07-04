@@ -55,7 +55,7 @@
 				
 				$description = null;
 				if(has_excerpt()){$description = get_the_excerpt();}
-          		else{echo wp_trim_words(get_the_content(), 18);}
+          		else{$description = wp_trim_words(get_the_content(), 18);}
 				
 				array_push($results['events'], array(
 			 		'title' => get_the_title(),
