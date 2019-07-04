@@ -24,6 +24,7 @@ class Search{
 
  	closeOverlay(){
  		this.searchOverlay.removeClass("search-overlay--active");
+ 		$("body").removeClass("body-no-scroll");
  	}// close closeOverlay
 
 } // close Search class
