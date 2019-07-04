@@ -51,7 +51,6 @@ class Search{
  	}
 
  	getResults(){
-
  		$.getJSON(universityData.root_url + '/wp-json/university/v1/search?term=' + this.searchField.val(), (results) => {
  			this.resultsDiv.html(`
  					<div class="row">
@@ -65,7 +64,7 @@ class Search{
  						</div>
  						<div class="one-third">
  							<h2 class="search-overlay__section-title">Program</h2>
- 							${results.programs.length ? '<ul class="link-list min-list">' : '<p>No search results found</p>'}
+ 							${results.programs.length ? '<ul class="link-list min-list">' : `<p>No programs match that search. <a href="${universityData.root_url}/programs">View all programs</a></p>`}
  				
  				 			${results.programs.map(item => `<li><a href="${item.permalink}">${item.title}</a> </li>`).join('')} 
  				
@@ -74,7 +73,7 @@ class Search{
  						</div>
  						<div class="one-third">
  							<h2 class="search-overlay__section-title">Campuses</h2>
- 							${results.campuses.length ? '<ul class="link-list min-list">' : '<p>No search results found</p>'}
+ 							${results.campuses.length ? '<ul class="link-list min-list">' : '<p>No search results found for campus</p>'}
  				
  				 			${results.campuses.map(item => `<li><a href="${item.permalink}">${item.title}</a> </li>`).join('')} 
  				
