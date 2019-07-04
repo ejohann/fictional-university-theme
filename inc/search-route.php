@@ -9,12 +9,23 @@
 		));
 	}
 
-	function universitySearchResults(){
+	function universitySearchResults($data){
 		$professors = new WP_query(array(
-			'post_type' => 'professor'
+			'post_type' => 'professor',
+			's' => sanitize_text_field($data['term'])
 		));
 
-		return $professors->posts;
+		$professorResults = array();
+
+		while($professors->have_posts()){
+			$professors->the_post();
+			array_push($professorResults, array(
+			 'title' => get_the_title(),
+			 'permalink' => get_the_permalink()
+			));
+		}
+
+		return $professorResults;
 	}
 
 	
