@@ -10,7 +10,11 @@
 	}
 
 	function universitySearchResults(){
-		return "Cogratulations, you created a route.";
+		$professors = new WP_query(array(
+			'post_type' => 'professor'
+		));
+
+		return $professors->posts;
 	}
 
 	
