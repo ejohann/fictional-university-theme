@@ -22,6 +22,10 @@ class Search{
  		 {
  		 	this.openOverlay();
  		 }
+ 	    if(e.keyCode == 27)
+ 		 {
+ 		 	this.closeOverlay();
+ 		 }
  	}
 
  	openOverlay(){
