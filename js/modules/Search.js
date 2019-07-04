@@ -73,7 +73,7 @@ class Search{
  						</div>
  						<div class="one-third">
  							<h2 class="search-overlay__section-title">Campuses</h2>
- 							${results.campuses.length ? '<ul class="link-list min-list">' : '<p>No search results found for campus</p>'}
+ 							${results.campuses.length ? '<ul class="link-list min-list">' : `<p>No search results found for campus. <a href="${universityData.root_url}/campuses">View all campuses</a></p>`}
  				
  				 			${results.campuses.map(item => `<li><a href="${item.permalink}">${item.title}</a> </li>`).join('')} 
  				
