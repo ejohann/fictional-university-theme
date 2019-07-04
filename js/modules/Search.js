@@ -13,9 +13,17 @@ class Search{
  	events(){
  		this.openButton.on("click", this.openOverlay.bind(this));
  		this.closeButton.on("click", this.closeOverlay.bind(this));
+ 		$(document).on("keyup", this.keyPressDispatcher.bind(this));
  	}
 
  	//3. methods (function, action..)
+ 	keyPressDispatcher(e){
+ 		if(e.keyCode == 83)
+ 		 {
+ 		 	this.openOverlay();
+ 		 }
+ 	}
+
  	openOverlay(){
  		this.searchOverlay.addClass("search-overlay--active");
  		$("body").addClass("body-no-scroll");
