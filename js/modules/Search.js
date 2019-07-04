@@ -60,7 +60,7 @@ class Search{
  				<h2 class="search-overlay__section-title">Search Results</h2>
  				${combinedResults.length ? '<ul class="link-list min-list">' : '<p>No search results found</p>'}
  				
- 				 ${combinedResults.map(item => `<li><a href="${item.link}">${item.title.rendered}</a></li>`).join('')} 
+ 				 ${combinedResults.map(item => `<li><a href="${item.link}">${item.title.rendered}</a> ${item.type == 'post' ? `by ${item.authorName}` : ''}  </li>`).join('')} 
  				
  				${combinedResults.length ? '</ul>' : '' }
  				
