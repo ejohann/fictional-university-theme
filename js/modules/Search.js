@@ -73,9 +73,8 @@ class Search{
  						</div>
  					</div>
  				`);
+ 			this.isSpinnerVisible = false;
  		});
-
- 	//		this.isSpinnerVisible = false;
  	
  		//	this.resultsDiv.html('<p>Unexpected error; please try again.</p>');
  	
