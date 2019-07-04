@@ -51,9 +51,12 @@
 			}
 
 			if(get_post_type() == 'event'){
+				$eventDate = new DateTime(get_field('event_date')); 
 				array_push($results['events'], array(
 			 		'title' => get_the_title(),
-			 		'permalink' => get_the_permalink()
+			 		'permalink' => get_the_permalink(),
+			 		'month' => $eventDate->format('M'),
+			 		'day' => $eventDate->format('d')
 			));
 			}
 
