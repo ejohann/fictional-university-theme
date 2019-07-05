@@ -1,17 +1,21 @@
+import $ from 'jquery';
+
 class MyNotes{
 
 	// 1. constructor
 	constructor(){
-		alert("Hello from MyNotes.js!");
+		this.events();
 	}
 
 	//2. events
 	events(){
-
+	  $(".delete-note").on("click", this.deleteNote);
 	}
 
 	//3. methods
-
+ deleteNote(){
+ 	alert("You clicked delete");
+ }
 
 }
 
