@@ -13,4 +13,15 @@
 		}
 
 
+	add_action('wp_loaded', 'noSubcribersAdminBar');
+
+	function noSubcribersAdminBar()
+		{
+			$ourCurrentUser = wp_get_current_user();
+			if(count($ourCurrentUser->roles) == 1 && $ourCurrentUser->roles[0] == 'subscriber')
+			  {
+			  	 show_admin_bar(false);
+			  }
+		}
+
 ?>
