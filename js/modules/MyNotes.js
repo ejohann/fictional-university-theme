@@ -10,6 +10,7 @@ class MyNotes{
 	//2. events
 	events(){
 	  $(".delete-note").on("click", this.deleteNote);
+	  $(".edit-note").on("click", this.editNote);
 	}
 
 	//3. methods
@@ -31,6 +32,11 @@ class MyNotes{
  			console.log(response);
  		}
  	});
+ }
+
+ editNote(e){
+ 	var thisNote = $(e.target).parents("li");
+ 	thisNote.find(".note-title-field, note-body-field").removeAttr("readonly").addClass("note-active-field");
  }
 
 }
