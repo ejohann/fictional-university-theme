@@ -12,6 +12,7 @@
 	 function ourLoginCSS()
 	  {
 	  	wp_enqueue_style('university_main_styles', get_stylesheet_uri(), NULL, microtime());
+	  	wp_enqueue_style('custom_google_fonts', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
 	  }
 
 	  // Customize Login Screen Logo
