@@ -45,8 +45,8 @@
     		<?php endif; ?>
 
     		<div class="generic-content">
-      			<form> 
-              <input type="search">
+      			<form action="<?php echo esc_url(site_url('/')); ?>"> 
+              <input type="search" name="s">
               <input type="submit" value="Search">
             </form>
     		</div>
