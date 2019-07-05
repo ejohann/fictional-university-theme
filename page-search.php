@@ -45,7 +45,7 @@
     		<?php endif; ?>
 
     		<div class="generic-content">
-      			
+      			<?php get_search_form(); ?>
     		</div>
   		</div>
 
