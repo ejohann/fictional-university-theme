@@ -9,4 +9,5 @@
   	require('inc/university-map-key.php');
   	require('inc/redirect-subscribers-frontend.php');
   	require('inc/customize-login-screen.php');
+  	require('inc/make-note-private.php');
 ?>
