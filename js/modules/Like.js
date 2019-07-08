@@ -34,9 +34,7 @@ class Like{
  			},
 			url: universityData.root_url + '/wp-json/university/v1/manageLike',
 			type: 'POST',
-			data: {
-				'professorId' : currentLikeBox.data['professorId']
-			},
+			data: {'professorId': currentLikeBox.data('professor')},
 			success: (response) => {
 				console.log(response);
 			},
@@ -51,7 +49,7 @@ class Like{
 			url: universityData.root_url + '/wp-json/university/v1/manageLike',
 			type: 'DELETE',
 			data: {
-				'professorId' : currentLikeBox.data['professorId']
+				'professorId' : currentLikeBox.data('professor')
 			},
 			success: (response) => {
 				console.log(response);
