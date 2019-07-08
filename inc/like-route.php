@@ -16,15 +16,24 @@
 	
 
 	function createLike(){
-		$professorId = sanitize_text_field($data['professorId']);
-		wp_insert_post(array(
-			'post_type' => 'like',
-			'post_status' => 'publish',
-			'post_title' => 'PHP Create Like Test',
-			'meta_input' => array(
-				'liked_professor_id' => $professorId 
-			) 
-		));
+		if(is_user_logged_in())
+		 {
+		 	$professorId = sanitize_text_field($data['professorId']);
+			return wp_insert_post(array(
+				'post_type' => 'like',
+				'post_status' => 'publish',
+				'post_title' => 'PHP Create Like Test',
+				'meta_input' => array(
+					'liked_professor_id' => $professorId 
+				) 
+		    ));
+		 }
+		else
+		 {
+		 	die("Only logged in users can create a like");
+		 }
+
+	
 	}
 
 
