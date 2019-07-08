@@ -32,7 +32,7 @@
                 )
              ));
 
-		 	if($existsQuery->found_posts == 0)
+		 	if($existsQuery->found_posts == 0  && get_post_type($professor) == 'professor')
 		 	 {
 		 		// create a new like post
 		 		return wp_insert_post(array(
