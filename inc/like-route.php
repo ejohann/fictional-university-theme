@@ -18,7 +18,7 @@
 	function createLike($data){
 		if(is_user_logged_in())
 		 {
-		 	$professor = $data['professorId'];
+		 	$professor = sanitize_text_field($data['professorId']);
 
 		 	 $existsQuery = new WP_Query(array(
                 'author' => get_current_user_id(),
@@ -59,8 +59,18 @@
 	}
 
 
-	function deleteLike(){
- 	   return 'thanks for trying to delete a like';
+	function deleteLike($data){
+ 	   $likeId = sanitize_text_field($data['like']);
+ 	   if(get_current_user_id() == get_post_field('post_author', $likeId) && get_post_type($likeId) == 'like')
+ 	    {
+ 	    	wp_delete_post($likeId, true);
+ 	    	return "Congrats! Liked deleted.";
+ 	    }
+ 	   else
+ 	    {
+ 	    	die("You do not have permission to delete that");
+ 	    }
+ 	   
 	}
 
 
