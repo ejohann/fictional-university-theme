@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 class Like{
 
 	//1. Constructor
