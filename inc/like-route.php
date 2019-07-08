@@ -15,16 +15,17 @@
 	}
 	
 
-	function createLike(){
+	function createLike($data){
 		if(is_user_logged_in())
 		 {
-		 	$professorId = sanitize_text_field($data['professorId']);
-			return wp_insert_post(array(
+		 	$professor = $data['professorId'];
+	
+			 return wp_insert_post(array(
 				'post_type' => 'like',
 				'post_status' => 'publish',
 				'post_title' => 'PHP Create Like Test',
 				'meta_input' => array(
-					'liked_professor_id' => $professorId 
+					'liked_professor_id' => $professor
 				) 
 		    ));
 		 }
