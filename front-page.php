@@ -86,16 +86,37 @@
   </div>
 
   <div class="hero-slider">
-  <div class="hero-slider__slide" style="background-image: url(<?php echo get_theme_file_uri('images/bus.jpg'); ?>);">
-    <div class="hero-slider__interior container">
-      <div class="hero-slider__overlay">
-        <h2 class="headline headline--medium t-center">Free Transportation</h2>
-        <p class="t-center">All students have free unlimited bus fare.</p>
-        <p class="t-center no-margin"><a href="#" class="btn btn--blue">Learn more</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="hero-slider__slide" style="background-image: url(<?php echo get_theme_file_uri('images/apples.jpg'); ?>);">
+      <?php 
+           $homepageSlides = new WP_Query(array(
+            'posts_per_page' => -1,
+            'post_type' => 'slider'
+          ));
+
+          while($homepageSlides->have_posts()){
+            $homepageSlides->the_post(); 
+
+            $slider_image = get_field('slider_image');
+
+            print($slider_image);
+            $image_url = $slider_image['url'];
+            $slider_link = get_field('slide_link');
+            ?>
+              
+              <div class="hero-slider__slide" style="background-image: url(<?php echo $image_url; ?>);">
+                <div class="hero-slider__interior container">
+                  <div class="hero-slider__overlay">
+                    <h2 class="headline headline--medium t-center"><?php the_title(); ?></h2>
+                    <p class="t-center"><?php the_content(); ?></p>
+                    <p class="t-center no-margin"><a href="<?php echo $slider_link; ?>" class="btn btn--blue">Learn more</a></p>
+                  </div>
+                </div>
+              </div>
+            
+          <?php }
+          wp_reset_postdata();
+        ?>
+ 
+ <!-- <div class="hero-slider__slide" style="background-image: url(<?php //echo get_theme_file_uri('images/apples.jpg'); ?>);">
     <div class="hero-slider__interior container">
       <div class="hero-slider__overlay">
         <h2 class="headline headline--medium t-center">An Apple a Day</h2>
@@ -104,7 +125,7 @@
       </div>
     </div>
   </div>
-  <div class="hero-slider__slide" style="background-image: url(<?php echo get_theme_file_uri('images/bread.jpg'); ?>);">
+  <div class="hero-slider__slide" style="background-image: url(<?php //echo get_theme_file_uri('images/bread.jpg'); ?>);">
     <div class="hero-slider__interior container">
       <div class="hero-slider__overlay">
         <h2 class="headline headline--medium t-center">Free Food</h2>
@@ -112,7 +133,7 @@
         <p class="t-center no-margin"><a href="#" class="btn btn--blue">Learn more</a></p>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
 
 
