@@ -14,8 +14,11 @@
   			<div class="generic-content">
   				<?php the_content(); ?>
   			</div>
+	<?php }
 
-        <?php $relatedPrograms = get_field('related_programs'); ?>
+   wp_reset_postdata();
+
+   $relatedPrograms = get_field('related_programs'); ?>
         <?php if($relatedPrograms) : ?>
           <hr class="section-break">
           <h2 class="headline headline--medium">Related Program(s)</h2>
@@ -27,9 +30,6 @@
             <?php } ?>
         </ul>
          <?php endif; ?>
-  		</div>
-        
-	<?php }
-
-   get_footer();
-?>
+      </div>
+      
+<?php get_footer(); ?>
