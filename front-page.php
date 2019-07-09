@@ -94,11 +94,9 @@
 
           while($homepageSlides->have_posts()){
             $homepageSlides->the_post(); 
-
             $slider_image = get_field('slider_image');
             $image_url = $slider_image['url'];
-            $slider_link = get_field('slide_link');
-            ?>
+            $slider_link = get_field('slide_link'); ?>
               
               <div class="hero-slider__slide" style="background-image: url(<?php echo $image_url; ?>);">
                 <div class="hero-slider__interior container">
@@ -110,10 +108,7 @@
                 </div>
               </div>
             
-          <?php }
-          wp_reset_postdata();
-        ?>
-</div>
-
+          <?php } wp_reset_postdata(); ?>
+  </div>
 
 <?php  get_footer(); ?>
